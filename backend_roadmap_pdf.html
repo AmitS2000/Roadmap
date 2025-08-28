@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend + DevOps Roadmap 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+            .page-break { page-break-before: always; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #2d3748;
+            background: white;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+        
+        .header .duration {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .overview {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4299e1;
+        }
+        
+        .overview h2 {
+            color: #2b6cb0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .outcomes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .outcome {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .outcome::before {
+            content: '✅';
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        
+        .phase {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .phase-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .phase-duration {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .phase-goal {
+            background: #e6fffa;
+            color: #2d5a2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #38b2ac;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section h3 {
+            color: #2b6cb0;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h3::before {
+            content: '🔗';
+            margin-right: 8px;
+        }
+        
+        .section h3.resources::before { content: '📚'; }
+        .section h3.practice::before { content: '💻'; }
+        .section h3.projects::before { content: '📌'; }
+        
+        .items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        .item {
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #4299e1;
+            font-size: 0.85rem;
+        }
+        
+        .item strong {
+            color: #2d3748;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .link {
+            background: #4299e1;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .project {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f56565;
+        }
+        
+        .project h4 {
+            color: #c53030;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .project p {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+        
+        .salary-highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #2d3748;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 600;
+        }
+        
+        .tips {
+            background: #f0fff4;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #48bb78;
+            margin-top: 30px;
+        }
+        
+        .tips h3 {
+            color: #2f855a;
+            margin-bottom: 15px;
+        }
+        
+        .tips ul {
+            list-style: none;
+        }
+        
+        .tips li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .tips li::before {
+            content: '💡';
+            margin-right: 8px;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4299e1;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+            z-index: 1000;
+        }
+        
+        .download-btn:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .outcomes { grid-template-columns: 1fr; }
+            .items { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn no-print" onclick="window.print()">📄 Download PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🔥 Complete Backend + DevOps Roadmap</h1>
+            <div class="subtitle">Transform from Beginner to Industry-Ready Engineer</div>
+            <div class="duration">6-8 Months Journey</div>
+        </div>
+
+        <div class="overview">
+            <h2>🎯 What You'll Achieve</h2>
+            <div class="outcomes">
+                <div class="outcome">Backend API Development Expert</div>
+                <div class="outcome">Cloud Deployment & Scaling</div>
+                <div class="outcome">DevOps & Automation Skills</div>
+                <div class="outcome">System Design Understanding</div>
+                <div class="outcome">₹10-20 LPA Job Ready</div>
+                <div class="outcome">Multiple Career Paths Open</div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 1: C++ + DSA Mastery</div>
+                <div class="phase-duration">Month 1-2</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Build rock-solid problem-solving and coding fundamentals
+            </div>
+            
+            <div class="section">
+                <h3>Core Topics to Master</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>C++ Fundamentals</strong>
+                        Syntax, OOPs, STL (vector, map, set)
+                    </div>
+                    <div class="item">
+                        <strong>Data Structures</strong>
+                        Arrays, Linked Lists, Stacks, Queues, Heaps
+                    </div>
+                    <div class="item">
+                        <strong>Algorithms</strong>
+                        Sorting, Searching, Recursion, DP
+                    </div>
+                    <div class="item">
+                        <strong>Advanced Topics</strong>
+                        Trees, Graphs, Complexity Analysis
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="resources">Essential Resources</h3>
+                <div class="links">
+                    <a href="#" class="link">Striver's A2Z DSA Sheet</a>
+                    <a href="#" class="link">LeetCode</a>
+                    <a href="#" class="link">Codeforces</a>
+                    <a href="#" class="link">CSES Problem Set</a>
+                    <a href="#" class="link">GeeksforGeeks Practice</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Project Milestones</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Library Management System</h4>
+                        <p>CLI-based system using OOPs and STL</p>
+                    </div>
+                    <div class="project">
+                        <h4>Parking Lot System</h4>
+                        <p>Complex object modeling and relationships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 2: Web Foundation</div>
+                <div class="phase-duration">Month 3</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Understand web fundamentals and frontend basics
+            </div>
+            
+            <div class="section">
+                <h3>Core Technologies</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>HTML5</strong>
+                        Semantic tags, forms, accessibility
+                    </div>
+                    <div class="item">
+                        <strong>CSS3</strong>
+                        Flexbox, Grid, animations, responsive design
+                    </div>
+                    <div class="item">
+                        <strong>JavaScript ES6+</strong>
+                        DOM, events, async/await, fetch API
+                    </div>
+                    <div class="item">
+                        <strong>Version Control</strong>
+                        Git fundamentals, GitHub workflow
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="resources">Study Resources</h3>
+                <div class="links">
+                    <a href="#" class="link">MDN Web Docs</a>
+                    <a href="#" class="link">freeCodeCamp</a>
+                    <a href="#" class="link">JavaScript.info</a>
+                    <a href="#" class="link">Frontend Mentor</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Projects</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Portfolio Website</h4>
+                        <p>Responsive design with animations</p>
+                    </div>
+                    <div class="project">
+                        <h4>Weather App</h4>
+                        <p>API integration and data handling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase page-break">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 3: Backend Framework</div>
+                <div class="phase-duration">Month 4-5</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Master API development and server-side logic
+            </div>
+            
+            <div class="section">
+                <h3>Framework Options (Choose One)</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>Node.js + Express</strong>
+                        JavaScript/TypeScript, middleware, JWT auth
+                    </div>
+                    <div class="item">
+                        <strong>Java + Spring Boot</strong>
+                        Spring MVC, Security, JPA/Hibernate
+                    </div>
+                    <div class="item">
+                        <strong>Python + Django/Flask</strong>
+                        ORM, REST framework, authentication
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Major Projects</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Authentication API</h4>
+                        <p>JWT, OAuth, password reset</p>
+                    </div>
+                    <div class="project">
+                        <h4>Blogging Platform</h4>
+                        <p>CRUD operations, user roles</p>
+                    </div>
+                    <div class="project">
+                        <h4>E-commerce Backend</h4>
+                        <p>Cart, orders, payment integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 4: Databases & System Design</div>
+                <div class="phase-duration">Month 6</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Design scalable data solutions and architecture
+            </div>
+            
+            <div class="section">
+                <h3>Database Technologies</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>SQL (MySQL/PostgreSQL)</strong>
+                        Joins, indexes, transactions, optimization
+                    </div>
+                    <div class="item">
+                        <strong>NoSQL (MongoDB)</strong>
+                        Document modeling, aggregation pipelines
+                    </div>
+                    <div class="item">
+                        <strong>Caching (Redis)</strong>
+                        Session storage, caching strategies
+                    </div>
+                    <div class="item">
+                        <strong>System Design</strong>
+                        Load balancing, scaling, CAP theorem
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Architecture Projects</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>URL Shortener</h4>
+                        <p>Like bit.ly with analytics</p>
+                    </div>
+                    <div class="project">
+                        <h4>Chat Application</h4>
+                        <p>Real-time messaging, scalable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 5: Cloud Fundamentals</div>
+                <div class="phase-duration">Month 7</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Deploy and scale applications in cloud
+            </div>
+            
+            <div class="section">
+                <h3>Cloud Services</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>AWS Services</strong>
+                        EC2, S3, RDS, Lambda, CloudFront
+                    </div>
+                    <div class="item">
+                        <strong>Google Cloud</strong>
+                        Compute Engine, BigQuery, Cloud Functions
+                    </div>
+                    <div class="item">
+                        <strong>Serverless</strong>
+                        Functions, API Gateway, auto-scaling
+                    </div>
+                    <div class="item">
+                        <strong>Networking</strong>
+                        VPC, load balancers, CDN
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Cloud Projects</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Full-Stack Deployment</h4>
+                        <p>Complete app on AWS/GCP</p>
+                    </div>
+                    <div class="project">
+                        <h4>Serverless API</h4>
+                        <p>Lambda + API Gateway</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-title">📅 Phase 6: DevOps & Automation</div>
+                <div class="phase-duration">Month 8</div>
+            </div>
+            <div class="phase-goal">
+                🎯 Goal: Containerization and CI/CD automation
+            </div>
+            
+            <div class="section">
+                <h3>DevOps Tools</h3>
+                <div class="items">
+                    <div class="item">
+                        <strong>Docker</strong>
+                        Images, containers, multi-stage builds
+                    </div>
+                    <div class="item">
+                        <strong>Kubernetes</strong>
+                        Pods, deployments, services, ingress
+                    </div>
+                    <div class="item">
+                        <strong>CI/CD</strong>
+                        Jenkins, GitHub Actions, pipelines
+                    </div>
+                    <div class="item">
+                        <strong>Infrastructure as Code</strong>
+                        Terraform basics (optional)
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="projects">Final Projects</h3>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Microservices Architecture</h4>
+                        <p>Containerized, orchestrated</p>
+                    </div>
+                    <div class="project">
+                        <h4>Complete CI/CD Pipeline</h4>
+                        <p>Code to production automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="salary-highlight">
+            🔥 Expected Outcome: ₹10-20 LPA in Product Companies | Backend + Cloud Expert | Multiple Career Paths
+        </div>
+
+        <div class="tips">
+            <h3>💡 Pro Tips for Success</h3>
+            <ul>
+                <li><strong>Consistency Over Intensity:</strong> Daily 3-4 hours better than weekend marathons</li>
+                <li><strong>Build in Public:</strong> Share progress on LinkedIn, get feedback from community</li>
+                <li><strong>Focus on Projects:</strong> Employers care more about what you built than what you studied</li>
+                <li><strong>Document Everything:</strong> Good README files show professionalism</li>
+                <li><strong>Quality Over Quantity:</strong> 3 polished projects > 10 incomplete ones</li>
+                <li><strong>Network Early:</strong> Connect with developers, join tech communities</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
